@@ -22,6 +22,18 @@ public class BookService {
 	};
 	
 	
+	public int insertBook(BookVO book) {
+		return bookDao.insertBook(book);
+	}
+	
+	public int updateBook(int b_no, String type, String change) {
+		return bookDao.updateBook(b_no, type, change);
+	}
+	
+	public int deleteBook(int b_no) {
+		return bookDao.deleteBook(b_no);
+	}
+	
 	
 
 

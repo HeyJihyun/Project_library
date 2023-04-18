@@ -5,6 +5,7 @@ import kr.ac.kopo.library.ui.ExitUI;
 
 public class SearchMenuUI extends BaseUI {
 	private int menu() {
+		System.out.println();
 		System.out.println("1.제목으로 검색 2.저자로 검색 3.출판사로 검색 4.도서번호로 검색 5.프로그램 종료");
 		int select = scanInt("원하는 항목을 선택해 주세요 : ");
 

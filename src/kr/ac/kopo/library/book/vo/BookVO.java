@@ -9,6 +9,7 @@ public class BookVO {
 	private String pub_date;
 	private String publisher;
 	private String genre;
+	private String r_state;
 
 	public BookVO() {
 		super();
@@ -16,7 +17,7 @@ public class BookVO {
 	}
 
 	public BookVO(int b_no, String title, String writer, String reg_date, String pub_date, String publisher,
-			String genre) {
+			String genre, String r_state) {
 		super();
 		this.b_no = b_no;
 		this.title = title;
@@ -25,6 +26,15 @@ public class BookVO {
 		this.pub_date = pub_date;
 		this.publisher = publisher;
 		this.genre = genre;
+		this.r_state = r_state;
+	}
+
+	public String getR_state() {
+		return r_state;
+	}
+
+	public void setR_state(String r_state) {
+		this.r_state = r_state;
 	}
 
 	public int getB_no() {
@@ -86,7 +96,10 @@ public class BookVO {
 	@Override
 	public String toString() {
 		return "BookVO [b_no=" + b_no + ", title=" + title + ", writer=" + writer + ", reg_date=" + reg_date
-				+ ", pub_date=" + pub_date + ", publisher=" + publisher + ", genre=" + genre + "]";
+				+ ", pub_date=" + pub_date + ", publisher=" + publisher + ", genre=" + genre + ", r_state=" + r_state
+				+ "]";
 	}
+
+
 
 }
