@@ -12,8 +12,8 @@ public class RentalService {
 		rentalDao = new RentalDAO();
 	}
 
-	public void insertRental(RentalVO vo) {
-		rentalDao.insertRental(vo);
+	public int insertRental(RentalVO vo) {
+		return rentalDao.insertRental(vo);
 	}
 	
 	public List<RentalVO> getRState(String id){

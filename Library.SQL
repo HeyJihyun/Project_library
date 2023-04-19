@@ -2,7 +2,6 @@
 
 /*
  T_MEMBER - 회원
- T_MANAGER - 관리자
  T_BOOK - 도서
  T_RENTAL - 대여관리
 */
@@ -22,14 +21,6 @@ ALTER TABLE T_MEMBER MODIFY
 SELECT *
   FROM T_MEMBER;
 
--- T_MANAGER - 관리자 테이블(아이디(PK), 비밀번호, 관리자 승인여부(1이면 관리자 0이면 승인전) 
-CREATE TABLE T_MANAGER (
-       ID       VARCHAR(30) PRIMARY KEY,
-       PWD      VARCHAR(30) NOT NULL,
-       APPROVAL CHAR(1) CHECK ( APPROVAL IN ( '0', '1' ) )
-);
-
-DROP TABLE T_MANAGER;
 
 
 -- T_BOOK - 도서 테이블(도서번호(PK), 제목, 저자, 등록일, 발행일, 출판사, 장르)
@@ -136,6 +127,8 @@ INSERT INTO T_BOOK (
 );
 
 COMMIT;
+
+delete from t_member where id = 'bbangmi';
 
 SELECT *
   FROM T_BOOK;

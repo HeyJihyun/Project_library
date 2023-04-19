@@ -1,39 +1,41 @@
 package kr.ac.kopo.library.member.ui;
 
-import kr.ac.kopo.library.member.service.MemberService;
 import kr.ac.kopo.library.member.vo.MemberVO;
-import kr.ac.kopo.library.ui.BaseUI;
 
-public class MemberCreateUI extends BaseUI{
+public class MemberCreateUI extends MemeberBaseUI{
 	
-	MemberService memberService = new MemberService();
 
 	@Override
 	public void execute() throws Exception {
 		
-		System.out.println("========================================");
-		System.out.println("\t\t회원가입 페이지");
-		System.out.println("========================================");
-		String id = scanString("id 입력 : ");
+		System.out.println("\t_");
+		System.out.println("\n\t회원가입을 선택하셨습니다.\n");
+		System.out.println();
+		String id = scanString("\tid 입력\t\t : ");
 		
-		while(memberService.checkId(id)) {
-			System.out.println("중복된 아이디 입니다.");
+		while(service.checkId(id)) {
+			System.out.println("\t - 중복된 아이디 입니다.");
 			System.out.println();
-			id = scanString("id 입력 : ");
+			id = scanString("\tid 입력\t\t : ");
 		};
 	
-		String pwd = scanString("비밀번호 입력 : ");
-		while(!pwd.equals(scanString("비밀번호 확인 : "))){
-			System.out.println("비밀번호를 확인해 주세요.");
-			pwd = scanString("비밀번호 입력 : ");
-		} ;
+		String pwd = scanString("\t비밀번호 입력\t : ");
+		while(!pwd.equals(scanString("\t비밀번호 확인\t : "))){
+			System.out.println("\t - 비밀번호를 확인해 주세요.\n");
+			pwd = scanString("\t비밀번호 입력\t : ");
+		} 
 		
-		String name = scanString("이름 입력 : ");
-		String phone = scanString("연락처 입력 : ");
+		String name = scanString("\t이름 입력 \t : ");
+		String phone = scanString("\t연락처 입력 \t : ");
 		
 		MemberVO member = new MemberVO(id, pwd, name, phone);
 		
-		memberService.insertMember(member);
+		
+		if(service.insertMember(member) == 1) {
+			System.out.println("\t_");
+			System.out.println("\n\t회원가입을 완료하였습니다.");
+		}
+
 		
 	}
 

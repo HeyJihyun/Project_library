@@ -51,10 +51,12 @@ public class RentalDAO {
 	
 	
 	// 대여하기
-	public void insertRental(RentalVO vo) {
+	public int insertRental(RentalVO vo) {
 		StringBuilder sql = new StringBuilder();
 		sql.append("insert into t_rental(r_no, b_no, u_id) ");
 		sql.append(" values(seq_t_rental.nextval, ?, ?)");
+		
+		int cnt = 0;
 		
 		try(
 			Connection conn = new ConnectionFactory().getConnection();
@@ -63,17 +65,13 @@ public class RentalDAO {
 			
 			pstmt.setInt(1, vo.getB_no());
 			pstmt.setString(2, vo.getU_id());
-			int cnt = pstmt.executeUpdate();
+			cnt = pstmt.executeUpdate();
 			
-			if(cnt == 1) {
-				System.out.println(vo.getB_no() + "번 도서 대여를 완료하였습니다.");
-			}
-
 		} catch (Exception e) {
 			System.out.println("도서대여에 실패하였습니다. 대여 현황을 확인해 주세요.");
 		}
 	
-	
+		return cnt;
 	}
 	
 	// 반납하기

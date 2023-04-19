@@ -3,32 +3,25 @@ package kr.ac.kopo.library.member.ui;
 import kr.ac.kopo.library.book.ui.SearchMenuUI;
 import kr.ac.kopo.library.book.ui.ViewAllUI;
 import kr.ac.kopo.library.rental.ui.SelectRental;
-import kr.ac.kopo.library.ui.BaseUI;
 import kr.ac.kopo.library.ui.ExitUI;
 import kr.ac.kopo.library.ui.ILibraryUI;
+import kr.ac.kopo.library.ui.MenuUI;
 
-public class SubMain extends BaseUI {
+public class SubMemu extends MenuUI {
 	
 	String id;
 	
-	public SubMain(String id) {
+	public SubMemu(String id) {
 		this.id = id;
 	}
 
-	private int menu() {
-		System.out.println();
-		System.out.println("1.도서검색 2.전체도서 조회 3.대여도서 선택 4.마이페이지 5.로그아웃 6.프로그램 종료");
-		int select = scanInt("원하는 항목을 선택해 주세요 : ");
-
-		return select;
-	}
 
 	@Override
 	public void execute() throws Exception {
 		
 		while(true) {
 			
-			int select = menu();
+			int select = menu("\t1.도서검색 \t2.전체도서 조회 \t3.대여도서 선택 \t4.마이페이지 \t\t5.로그아웃 \t6.프로그램 종료");
 			ILibraryUI ui = null;
 			
 			switch (select) {
@@ -42,7 +35,7 @@ public class SubMain extends BaseUI {
 				ui = new SelectRental(id);
 				break;
 			case 4:
-				ui = new MypageUI(id);
+				ui = new MypageMenuUI(id);
 				break;
 			case 5:
 				return;
@@ -54,7 +47,7 @@ public class SubMain extends BaseUI {
 			if (ui != null) {
 				ui.execute();
 			} else {
-				System.out.println("잘못입력 하셨습니다.");
+				System.out.println("\n\t - 잘못입력 하셨습니다.");
 			}
 		}
 

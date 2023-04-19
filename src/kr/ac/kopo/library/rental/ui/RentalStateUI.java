@@ -2,47 +2,50 @@ package kr.ac.kopo.library.rental.ui;
 
 import java.util.List;
 
-import kr.ac.kopo.library.rental.service.RentalService;
 import kr.ac.kopo.library.rental.vo.RentalVO;
-import kr.ac.kopo.library.ui.BaseUI;
 import kr.ac.kopo.library.ui.ILibraryUI;
+import kr.ac.kopo.util.Line;
 
-public class RentalStateUI extends BaseUI {
+public class RentalStateUI extends RentalBaseUI {
 
 	String id;
-	RentalService service;
 
 	public RentalStateUI(String id) {
 		this.id = id;
-		service = new RentalService();
 	}
 
 	private int menu() {
+		Line.line('_');
 		System.out.println();
-		System.out.println("1. 반납하기 2. 연장하기 3. 이전페이지");
-		return scanInt("원하는 항목을 선택해 주세요 : ");
+		System.out.println("\t1.반납하기 \t2.연장하기 \t3.이전페이지");
+		Line.line('_');
+		int select = scanInt("\n\t원하는 항목을 선택해 주세요 : ");
+		return select;
+
 	}
 
 	public void getRState() {
 		List<RentalVO> rentalList = service.getRState(id);
 
-		System.out.println("\n=======================================================");
-		System.out.println("\t\t\t대여 목록 페이지");
-		System.out.println("-------------------------------------------------------");
-		System.out.println("no   연장여부 \t 대여일 \t 반납일 \t 제목");
+		Line.line('_');
+		System.out.println("\n\t\t\t\t\t\t\t\t\t\t\t\t 대여목록\n");
+		Line.line('_');
+		System.out.printf("\n \t%-4s\t %-6s\t \t%-10s \t%-10s \t%-50s \n", "번호", "연장여부", "대여일", "반납일", "제목");
+		Line.line('.');
+		System.out.println();
 
 		if (rentalList == null || rentalList.size() == 0) {
-			System.out.println("대여 목록이 없습니다.");
+			System.out.println("\t대여 목록이 없습니다.");
 		} else {
 			for (RentalVO rental : rentalList) {
-				System.out.printf("%03d ", rental.getB_no());
-				System.out.printf("%-6s ", rental.getExtension() == 1 ? "연장가능" : "연장불가");
-				System.out.printf("%-12s ", rental.getRental_date());
-				System.out.printf("%-12s ", rental.getReturn_date());
-				System.out.printf("%s \n", rental.getTitle());
+				System.out.printf(" \t%03d \t", rental.getB_no());
+				System.out.printf(" \t%-6s \t", rental.getExtension() == 1 ? "연장가능" : "연장불가");
+				System.out.printf(" \t%-10s \t", rental.getRental_date());
+				System.out.printf(" \t%-10s \t", rental.getReturn_date());
+				System.out.printf(" \t%-50s \n", rental.getTitle());
 			}
 		}
-		System.out.println("=======================================================\n");
+		Line.line('_');
 	}
 
 	@Override
@@ -66,7 +69,7 @@ public class RentalStateUI extends BaseUI {
 			if (ui != null) {
 				ui.execute();
 			} else {
-				System.out.println("잘못입력 하셨습니다.");
+				System.out.println("\t - 잘못입력 하셨습니다.");
 			}
 		}
 	}

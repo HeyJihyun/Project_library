@@ -1,28 +1,20 @@
 package kr.ac.kopo.library.book.ui;
 
-import kr.ac.kopo.library.ui.BaseUI;
-import kr.ac.kopo.library.ui.ExitUI;
+import kr.ac.kopo.library.ui.MenuUI;
 
-public class SearchMenuUI extends BaseUI {
-	private int menu() {
-		System.out.println();
-		System.out.println("1.제목으로 검색 2.저자로 검색 3.출판사로 검색 4.도서번호로 검색 5.프로그램 종료");
-		int select = scanInt("원하는 항목을 선택해 주세요 : ");
-
-		return select;
-	}
+public class SearchMenuUI extends MenuUI {
 
 	@Override
 	public void execute() throws Exception {
 
-		int select = menu();
+		int select = menu("\t1.제목으로 검색 \t2.저자로 검색 \t\t3.출판사로 검색 \t4.도서번호로 검색 \t5.이전페이지");
 		String search = null;
 		switch (select) {
 		case 1:
-			search = "title";
+			search = "TITLE";
 			break;
 		case 2:
-			search = "writer";
+			search = "WRITER";
 			break;
 		case 3:
 			search = "PUBLISHER";
@@ -31,15 +23,14 @@ public class SearchMenuUI extends BaseUI {
 			search = "B_NO";
 			break;
 		case 5:
-			new ExitUI().execute();
-			break;
+			return;
 		}
 
 		if (search != null) {
-			String detail = scanString(search + " 검색 : ");
+			String detail = scanString("\n\t" + search + " 검색 \t: ");
 			new SearchUI(search, detail).execute();
 		} else {
-			System.out.println("잘못입력 하셨습니다.");
+			System.out.println("\n\t - 잘못입력 하셨습니다.");
 			this.execute();
 		}
 

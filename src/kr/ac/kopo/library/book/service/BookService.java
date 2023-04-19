@@ -2,7 +2,7 @@ package kr.ac.kopo.library.book.service;
 
 import java.util.List;
 
-import kr.ac.kopo.library.book.DAO.BookDAO;
+import kr.ac.kopo.library.book.dao.BookDAO;
 import kr.ac.kopo.library.book.vo.BookVO;
 
 public class BookService {

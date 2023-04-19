@@ -2,21 +2,17 @@ package kr.ac.kopo.library.ui;
 
 import kr.ac.kopo.library.member.ui.MemberCreateUI;
 import kr.ac.kopo.library.member.ui.MemberSigninUI;
+import kr.ac.kopo.util.Line;
 
-public class MainUI extends BaseUI {
-
-	private int menu() {
-		System.out.println();
-		System.out.println("1. 회원 로그인 2. 회원가입 3. 프로그램 종료");
-		int select = scanInt("원하는 항목을 선택해 주세요 : ");
-		return select;
-	}
+public class MainMenuUI extends MenuUI {
 
 	@Override
 	public void execute() throws Exception {
+		Line.line('_');
+		System.out.println("\n\t\t\t\t\t\t\t\t\t\tJH도서관에 오신걸 환영합니다\n");
 		while (true) {
 
-			int select = menu();
+			int select = menu("\t1.회원 로그인 \t\t2.회원가입 \t\t3.프로그램 종료");
 			ILibraryUI ui = null;
 
 			switch (select) {

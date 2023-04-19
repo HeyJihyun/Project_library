@@ -25,11 +25,12 @@ public class MemberDAO {
 	}
 	
 	// 회원가입 
-	public void insertMember(MemberVO member) {
+	public int insertMember(MemberVO member) {
 		
 		StringBuilder sql = new StringBuilder();
 		sql.append("insert into t_member(id, pwd, name, phone) ");
 		sql.append(" values(?, ?, ?, ?)");
+		int cnt = 0;
 		
 		try(
 			Connection conn = new ConnectionFactory().getConnection();
@@ -40,16 +41,13 @@ public class MemberDAO {
 			pstmt.setString(2, member.getPwd());
 			pstmt.setString(3, member.getName());
 			pstmt.setString(4, member.getPhone());
-			int cnt = pstmt.executeUpdate();
-			
-			if(cnt == 1) {
-				System.out.println("회원가입을 완료하였습니다.");
-			}
+			cnt = pstmt.executeUpdate();
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	
+		return cnt;
 	
 	}
 	
@@ -179,7 +177,7 @@ public class MemberDAO {
 			cnt = pstmt.executeUpdate();
 			
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println("\t대여중인 도서가 있을 경우 탈퇴가 불가합니다.");
 		}
 		
 		return cnt;

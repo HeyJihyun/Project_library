@@ -19,8 +19,8 @@ public class MemberService {
 	}
 	
 	// 회원가입
-	public void insertMember(MemberVO member) {
-		memberDao.insertMember(member);
+	public int insertMember(MemberVO member) {
+		return memberDao.insertMember(member);
 	}
 	
 	// 아이디, 비번 확인

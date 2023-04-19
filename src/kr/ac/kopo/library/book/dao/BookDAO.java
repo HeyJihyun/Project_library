@@ -1,4 +1,4 @@
-package kr.ac.kopo.library.book.DAO;
+package kr.ac.kopo.library.book.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -66,7 +66,7 @@ public class BookDAO {
 		sql.append("       GENRE,");
 		sql.append("       CASE when b_no in (select b_no from t_rental) then '대여불가' else '대여가능' end as 대여현황");
 		sql.append(" from t_book ");
-		sql.append(" order by 대여현황");
+		sql.append(" order by 대여현황, b_no");
 		List<BookVO> bookList = new ArrayList<>();
 
 		try (Connection conn = new ConnectionFactory().getConnection();

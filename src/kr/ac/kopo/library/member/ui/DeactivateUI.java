@@ -1,34 +1,30 @@
 package kr.ac.kopo.library.member.ui;
 
-import kr.ac.kopo.library.member.service.MemberService;
-import kr.ac.kopo.library.ui.BaseUI;
-import kr.ac.kopo.library.ui.MainUI;
+import kr.ac.kopo.library.ui.MainMenuUI;
 
-public class DeactivateUI extends BaseUI {
+public class DeactivateUI extends MemeberBaseUI {
 	
 	String id;
-	MemberService service;
 
 	public DeactivateUI(String id) {
 		this.id = id;
-		service = new MemberService();
 	}
 
 	@Override
 	public void execute() throws Exception {
-		char type = scanString("정말로 탈퇴하시겠습니까? (y/n)").charAt(0);
+		char type = scanString("\t정말로 탈퇴하시겠습니까? (y/n)").charAt(0);
+		System.out.println();
 		switch (type) {
 		case 'y':
-			String pwd = scanString("비밀번호를 입력해주세요.");
+			String pwd = scanString("\t비밀번호를 입력 \t: ");
+			System.out.println();
 			if (service.logIn(id, pwd)) {
 				if(service.delete(id) != 0) {
-					System.out.println("탈퇴가 완료되었습니다.");
-					new MainUI().execute();
-				} else { 
-					
-				};
+					System.out.println("\t탈퇴가 완료되었습니다.");
+					new MainMenuUI().execute();
+				}
 			} else {
-				System.out.println("잘못입력 하셨습니다.");
+				System.out.println("\t잘못입력 하셨습니다.");
 				execute();
 			}
 			break;

@@ -1,29 +1,22 @@
 package kr.ac.kopo.library.member.ui;
 
 import kr.ac.kopo.library.rental.ui.RentalStateUI;
-import kr.ac.kopo.library.ui.BaseUI;
 import kr.ac.kopo.library.ui.ILibraryUI;
+import kr.ac.kopo.library.ui.MenuUI;
 
-public class MypageUI extends BaseUI {
+public class MypageMenuUI extends MenuUI {
 
 	String id;
 
-	public MypageUI(String id) {
+	public MypageMenuUI(String id) {
 		this.id = id;
 	}
 
-	private int menu() {
-		System.out.println();
-		System.out.println("1. 대여현황 2. 회원정보수정 3. 회원탈퇴 4. 이전페이지");
-		int select = scanInt("원하는 항목을 선택해 주세요 : ");
-
-		return select;
-	}
 
 	@Override
 	public void execute() throws Exception {
 		while (true) {
-			int select = menu();
+			int select = menu("\t1.대여현황 \t2.회원정보수정 \t\t3.회원탈퇴 \t4.이전페이지");
 			ILibraryUI ui = null;
 
 			switch (select) {
@@ -43,7 +36,7 @@ public class MypageUI extends BaseUI {
 			if (ui != null) {
 				ui.execute();
 			} else {
-				System.out.println("잘못입력 하셨습니다.");
+				System.out.println("\t - 잘못입력 하셨습니다.");
 			}
 
 		}

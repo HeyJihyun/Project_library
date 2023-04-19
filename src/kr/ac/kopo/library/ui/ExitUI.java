@@ -1,13 +1,15 @@
 package kr.ac.kopo.library.ui;
 
+import kr.ac.kopo.util.Line;
+
 public class ExitUI extends BaseUI {
 
 	@Override
 	public void execute() throws Exception{
 		
-		System.out.println("-----------------------------------");
-		System.out.println("\t도서관 프로그램을 종료합니다");
-		System.out.println("-----------------------------------");
+		Line.line('_');
+		System.out.println("\n\t\t\t\t\t\t\t\t\t\t   JH도서관은 폐점했습니다.\n");
+		Line.line('_');
 		System.exit(0);
 		
 	}
