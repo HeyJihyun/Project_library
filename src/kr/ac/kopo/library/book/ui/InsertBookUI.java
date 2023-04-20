@@ -2,14 +2,14 @@ package kr.ac.kopo.library.book.ui;
 
 import kr.ac.kopo.library.book.vo.BookVO;
 
-public class CreateBookUI extends BookBaseUI {
+public class InsertBookUI extends BookBaseUI {
 
 	@Override
 	public void execute() throws Exception {
 		
 		System.out.println("\t_");
-		System.out.println("\t도서등록");
-		System.out.println("\t_");
+		System.out.println("\n\t도서등록");
+		System.out.println("\t_\n");
 		
 		BookVO book = new BookVO();
 		book.setTitle(scanString("\t책 제목 \t\t: "));

@@ -68,7 +68,7 @@ public class RentalDAO {
 			cnt = pstmt.executeUpdate();
 			
 		} catch (Exception e) {
-			System.out.println("도서대여에 실패하였습니다. 대여 현황을 확인해 주세요.");
+			System.out.println("\t도서대여에 실패하였습니다. 대여 현황을 확인해 주세요.");
 		}
 	
 		return cnt;

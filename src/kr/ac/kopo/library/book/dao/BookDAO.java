@@ -170,7 +170,7 @@ public class BookDAO {
 			cnt = pstmt.executeUpdate();
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			cnt = -1;
 		}
 
 		return cnt;

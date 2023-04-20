@@ -1,6 +1,6 @@
 package kr.ac.kopo.library.manager.ui;
 
-import kr.ac.kopo.library.book.ui.CreateBookUI;
+import kr.ac.kopo.library.book.ui.InsertBookUI;
 import kr.ac.kopo.library.book.ui.DeleteBookUI;
 import kr.ac.kopo.library.book.ui.UpdateBookUI;
 import kr.ac.kopo.library.book.ui.ViewAllUI;
@@ -30,7 +30,7 @@ public class ManagerMenuUI extends MenuUI {
 				ui = new ViewAllUI();
 				break; 
 			case 2:
-				ui = new CreateBookUI();
+				ui = new InsertBookUI();
 				break;
 			case 3: 
 				ui = new UpdateBookUI();
