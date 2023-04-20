@@ -2,13 +2,10 @@ package kr.ac.kopo.library.book.ui;
 
 import java.util.List;
 
-import kr.ac.kopo.library.book.service.BookService;
 import kr.ac.kopo.library.book.vo.BookVO;
-import kr.ac.kopo.library.ui.BaseUI;
 import kr.ac.kopo.util.Line;
 
-public class ViewAllUI extends BaseUI {
-	BookService service = new BookService();
+public class ViewAllUI extends BookBaseUI {
 
 	@Override
 	public void execute() throws Exception {

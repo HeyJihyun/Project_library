@@ -2,6 +2,7 @@ package kr.ac.kopo.library.member.ui;
 
 import kr.ac.kopo.library.manager.service.ManagerService;
 import kr.ac.kopo.library.manager.ui.ManagerMenuUI;
+import kr.ac.kopo.library.ui.SubMemu;
 
 public class MemberSigninUI extends MemeberBaseUI {
 

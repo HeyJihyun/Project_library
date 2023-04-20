@@ -2,14 +2,11 @@ package kr.ac.kopo.library.book.ui;
 
 import java.util.List;
 
-import kr.ac.kopo.library.book.service.BookService;
 import kr.ac.kopo.library.book.vo.BookVO;
-import kr.ac.kopo.library.ui.BaseUI;
 import kr.ac.kopo.util.Line;
 
-public class SearchUI extends BaseUI {
+public class SearchUI extends BookBaseUI {
 	
-	BookService service = new BookService();
 
 
 	private String search;

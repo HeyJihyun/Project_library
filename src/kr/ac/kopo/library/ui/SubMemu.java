@@ -1,11 +1,9 @@
-package kr.ac.kopo.library.member.ui;
+package kr.ac.kopo.library.ui;
 
 import kr.ac.kopo.library.book.ui.SearchMenuUI;
 import kr.ac.kopo.library.book.ui.ViewAllUI;
+import kr.ac.kopo.library.member.ui.MypageMenuUI;
 import kr.ac.kopo.library.rental.ui.SelectRental;
-import kr.ac.kopo.library.ui.ExitUI;
-import kr.ac.kopo.library.ui.ILibraryUI;
-import kr.ac.kopo.library.ui.MenuUI;
 
 public class SubMemu extends MenuUI {
 	
