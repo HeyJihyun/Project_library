@@ -2,5 +2,5 @@ package kr.ac.kopo.library.ui;
 
 public interface ILibraryUI {
 
-	void execute() throws Exception ;
+    void execute() throws Exception;
 }
